@@ -4,6 +4,8 @@
 
 from flask import Flask, render_template
 
+from db import get_popular_articles
+
 app = Flask(__name__)
 
 
@@ -16,7 +18,9 @@ def home():
 def articles():
     ''' Most popular articles '''
     title = 'Popular articles'
-    return render_template('report.html', title=title)
+    articles = get_popular_articles()
+    return render_template('report.html', title=title, data=articles, columns=['title', 'views'])
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000)

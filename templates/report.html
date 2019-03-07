@@ -6,23 +6,19 @@
 <table class="table report-table">
     <thead>
     <tr>
-        <th>column name</th>
-        <th>column name</th>
+        {% for col in columns %}
+        <th>{{ col | upper }}</th>
+        {% endfor %}
     </tr>
     </thead>
     <tbody>
+    {% for row in data %}
     <tr>
-        <td>column data</td>
-        <td>column data</td>
+        {% for col in columns %}
+        <td>{{ row[col] }}</td>
+        {% endfor %}
     </tr>
-    <tr>
-        <td>column data</td>
-        <td>column data</td>
-    </tr>
-    <tr>
-        <td>column data</td>
-        <td>column data</td>
-    </tr>
+    {% endfor %}
     </tbody>
 </table>
 {% endblock %}
