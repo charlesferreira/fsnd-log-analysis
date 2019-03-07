@@ -17,3 +17,6 @@ def get_top_articles():
 
 def get_authors_rank():
     return run_select_query("SELECT * FROM author_views ORDER BY views DESC")
+
+def get_errors():
+    return run_select_query("SELECT * FROM error_rates WHERE rate > 0.01 ORDER BY rate DESC")

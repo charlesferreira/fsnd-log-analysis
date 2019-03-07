@@ -9,7 +9,7 @@
 {% for row in data %}
     <tr>
         <td class="text-left">{{ ' {} '.format(row[0]) }}</td>
-        <td class="text-right">{{ '{:,}'.format(row[1]) }} views</td>
+        <td class="text-right">{{ '{:,}'.format(row[1]) }} <span class="d-none d-md-inline-block">views</span></td>
     </tr>
 {% endfor %}
 {% endblock %}

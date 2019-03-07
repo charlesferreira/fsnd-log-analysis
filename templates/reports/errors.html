@@ -1,0 +1,15 @@
+{% extends '_report.html' %}
+
+{% block table_columns %}
+    <th class="text-left">Date</th>
+    <th class="text-right">Errors</th>
+{% endblock %}
+
+{% block table_rows %}
+{% for row in data %}
+    <tr>
+        <td class="text-left">{{ row[0].strftime('%b %d, %Y') }}</td>
+        <td class="text-right">{{ '{:.1f}%'.format(row[1] * 100) }} <span class="d-none d-md-inline-block">errors</span></td>
+    </tr>
+{% endfor %}
+{% endblock %}

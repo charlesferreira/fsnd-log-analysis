@@ -4,7 +4,7 @@
 
 from flask import Flask, render_template
 
-from db import get_top_articles, get_authors_rank
+from db import get_top_articles, get_authors_rank, get_errors
 
 app = Flask(__name__)
 
@@ -27,6 +27,13 @@ def authors():
     title = 'Authors rank'
     authors = get_authors_rank()
     return render_template('reports/authors.html', title=title, data=authors)
+
+@app.route('/errors')
+def errors():
+    ''' Days with error rate > 1% '''
+    title = 'Error requests > 1%'
+    errors = get_errors()
+    return render_template('reports/errors.html', title=title, data=errors)
 
 
 if __name__ == '__main__':
