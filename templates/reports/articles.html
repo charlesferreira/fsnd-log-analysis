@@ -8,8 +8,8 @@
 {% block table_rows %}
 {% for row in data %}
     <tr>
-        <td>"{{ row.title }}"</td>
-        <td>{{ row.views }} views</td>
+        <td>{{ '"{}"'.format(row[0]) }}</td>
+        <td>{{ '{:,}'.format(row[1]) }} views</td>
     </tr>
 {% endfor %}
 {% endblock %}
