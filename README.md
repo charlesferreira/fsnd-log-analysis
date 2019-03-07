@@ -13,6 +13,12 @@ CREATE VIEW article_views AS SELECT title, COUNT(*) AS views FROM log, articles 
 
 -- Return the view count for each article's author
 CREATE VIEW author_views AS SELECT name, COUNT(*) AS views FROM log, articles ar, authors au WHERE path=CONCAT('/article/', slug) AND ar.author=au.id GROUP BY name;
+
+-- Count requests and errors by date
+CREATE VIEW request_count AS SELECT DATE(time), COUNT(*) FROM log GROUP BY date;
+CREATE VIEW request_errors AS SELECT DATE(time), COUNT(*) FROM log WHERE status LIKE '4%' GROUP BY date;
+CREATE VIEW error_rates AS SELECT e.date, CAST(e.count AS FLOAT)/c.count AS rate FROM request_errors e, request_count c WHERE e.date = c.date;
+
 ```
 
 ## Usage
