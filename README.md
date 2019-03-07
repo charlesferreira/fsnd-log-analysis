@@ -26,7 +26,7 @@ CREATE VIEW error_rates AS SELECT e.date, CAST(e.count AS FLOAT)/c.count AS rate
 Run the following command to start the server:
 
 ```
-$ python report.py
+$ python main.py
 ```
 
 The reports will be available at <http://localhost:8000>
