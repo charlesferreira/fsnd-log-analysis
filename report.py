@@ -4,7 +4,7 @@
 
 from flask import Flask, render_template
 
-from db import get_popular_articles
+from db import get_top_articles, get_authors_rank
 
 app = Flask(__name__)
 
@@ -17,9 +17,16 @@ def home():
 @app.route('/articles')
 def articles():
     ''' Most popular articles '''
-    title = 'Popular articles'
-    articles = get_popular_articles()
+    title = 'Top articles'
+    articles = get_top_articles()
     return render_template('reports/articles.html', title=title, data=articles)
+
+@app.route('/authors')
+def authors():
+    ''' Most popular articles '''
+    title = 'Authors rank'
+    authors = get_authors_rank()
+    return render_template('reports/authors.html', title=title, data=authors)
 
 
 if __name__ == '__main__':
