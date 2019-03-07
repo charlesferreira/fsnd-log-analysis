@@ -5,13 +5,21 @@ Nanodegree at Udacity.
 
 ## Setup
 
-Create the database views by running the following commands:
+Execute the following queries in Postgres to create the required database views:
 
 ```sql
 CREATE VIEW article_views AS SELECT title, COUNT(*) AS views FROM log, articles WHERE path=CONCAT('/article/', slug) GROUP BY articles.id;
 ```
 
 ## Usage
+
+Run the following command to start the server:
+
+```
+$ python report.py
+```
+
+The reports will be available at <http://localhost:8000>
 
 ## Contact
 
