@@ -4,18 +4,16 @@ import psycopg2
 
 DBNAME = 'news'
 
+def run_select_query(query):
+    conn = psycopg2.connect(database=DBNAME)
+    cursor = conn.cursor()
+    cursor.execute(query)
+    result = cursor.fetchall()
+    conn.close()
+    return result
+
 def get_top_articles():
-    db = psycopg2.connect(database=DBNAME)
-    cursor = db.cursor()
-    cursor.execute("SELECT * FROM article_views ORDER BY views DESC LIMIT 3")
-    articles = cursor.fetchall()
-    db.close()
-    return articles
+    return run_select_query("SELECT * FROM article_views ORDER BY views DESC LIMIT 3")
 
 def get_authors_rank():
-    db = psycopg2.connect(database=DBNAME)
-    cursor = db.cursor()
-    cursor.execute("SELECT * FROM author_views ORDER BY views DESC")
-    authors = cursor.fetchall()
-    db.close()
-    return authors
+    return run_select_query("SELECT * FROM author_views ORDER BY views DESC")
