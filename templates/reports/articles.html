@@ -1,15 +1,15 @@
 {% extends '_report.html' %}
 
 {% block table_columns %}
-    <th>Title</th>
-    <th>Views</th>
+    <th class="text-left">Title</th>
+    <th class="text-right">Views</th>
 {% endblock %}
 
 {% block table_rows %}
 {% for row in data %}
     <tr>
-        <td>{{ '"{}"'.format(row[0]) }}</td>
-        <td>{{ '{:,}'.format(row[1]) }} views</td>
+        <td class="text-left">{{ '"{}"'.format(row[0]) }}</td>
+        <td class="text-right">{{ '{:,}'.format(row[1]) }} <span class="d-none d-md-inline-block">views</span></td>
     </tr>
 {% endfor %}
 {% endblock %}

@@ -3,15 +3,21 @@
 {% block main %}
 <h1>{{ title }}</h1>
 
-<table class="table report-table">
-    <thead>
-    <tr>
-        {% block table_columns %}{% endblock %}
-    </tr>
-    </thead>
+<div class="row">
+    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
 
-    <tbody>
-        {% block table_rows %}{% endblock %}
-    </tbody>
-</table>
+        <table class="table table-hover report-table">
+            <thead>
+            <tr>
+                {% block table_columns %}{% endblock %}
+            </tr>
+            </thead>
+
+            <tbody>
+            {% block table_rows %}{% endblock %}
+            </tbody>
+        </table>
+
+    </div>
+</div>
 {% endblock %}
