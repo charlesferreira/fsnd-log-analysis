@@ -5,8 +5,13 @@ Nanodegree at Udacity.
 
 ## Setup
 
-## Usage
+Create the database views by running the following commands:
 
+```sql
+CREATE VIEW article_views AS SELECT title, COUNT(*) AS views FROM log, articles WHERE path=CONCAT('/article/', slug) GROUP BY articles.id;
+```
+
+## Usage
 
 ## Contact
 
