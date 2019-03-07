@@ -1,18 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {% if title %}
-    <title>{{ title }} - Log Analysis</title>
+    <title>{{ title }} &mdash; Log Analysis</title>
     {% else %}
     <title>Log Analysis</title>
     {% endif %}
-  </head>
-  <body>
-    <h1>Log Analysis</h1>
-    <ul>
-        <li><a href="#">Most popular articles</a></li>
-        <li><a href="#">Most popular authors</a></li>
-        <li><a href="#">Most error requests</a></li>
-    </ul>    
-  </body>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+</head>
+
+<body>
+<nav class="navbar navbar-expand navbar-dark bg-dark fixed-top">
+    <a href="/" class="navbar-brand">Log Analysis</a>
+    <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item {% if request.path == '/articles' %} active {% endif %}">
+            <a class="nav-link" href="articles">Popular articles</a>
+        </li>
+        <li class="nav-item {% if request.path == '/authors' %} active {% endif %}">
+            <a class="nav-link" href="authors">Popular authors</a>
+        </li>
+        <li class="nav-item {% if request.path == '/errors' %} active {% endif %}">
+            <a class="nav-link" href="errors">Error requests</a>
+        </li>
+    </ul>
+    </div>
+</nav>
+
+<main class="container" id="main">
+    {% block report %}
+    <h1>Welcome to Log Analysis</h1>
+    <p class="lead">
+        Select on the menu above which report you'd like to see.
+    </p>
+    {% endblock %}
+</main>
+
+</body>
 </html>
