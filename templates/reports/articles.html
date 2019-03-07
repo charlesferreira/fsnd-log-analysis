@@ -1,0 +1,15 @@
+{% extends '_report.html' %}
+
+{% block table_columns %}
+    <th>Title</th>
+    <th>Views</th>
+{% endblock %}
+
+{% block table_rows %}
+{% for row in data %}
+    <tr>
+        <td>"{{ row.title }}"</td>
+        <td>{{ row.views }} views</td>
+    </tr>
+{% endfor %}
+{% endblock %}

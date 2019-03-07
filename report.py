@@ -19,7 +19,7 @@ def articles():
     ''' Most popular articles '''
     title = 'Popular articles'
     articles = get_popular_articles()
-    return render_template('report.html', title=title, data=articles, columns=['title', 'views'])
+    return render_template('reports/articles.html', title=title, data=articles)
 
 
 if __name__ == '__main__':
