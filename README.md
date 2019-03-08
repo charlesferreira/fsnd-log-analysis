@@ -34,3 +34,8 @@ The reports will be available at <http://localhost:8000>
 ## Contact
 
 Charles Ferreira <charles.dev@live.com>
+
+### P.S.
+Don't forget to check this project [at GitHub][repo]! :wink:
+
+[repo]: https://github.com/charlesferreira/fsnd-log-analysis
