@@ -14,6 +14,7 @@ def home():
     ''' Home page '''
     return render_template('index.html')
 
+
 @app.route('/articles')
 def articles():
     ''' Most popular articles '''
@@ -21,12 +22,14 @@ def articles():
     articles = get_top_articles()
     return render_template('reports/articles.html', title=title, data=articles)
 
+
 @app.route('/authors')
 def authors():
     ''' Most popular articles '''
     title = 'Authors rank'
     authors = get_authors_rank()
     return render_template('reports/authors.html', title=title, data=authors)
+
 
 @app.route('/errors')
 def errors():
@@ -38,4 +41,3 @@ def errors():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000)
-
