@@ -1,12 +1,21 @@
 # Database code for the Log Analysis
 
 import psycopg2
+import sys
+
 
 DBNAME = 'news'
 
 
 def run_select_query(query):
-    conn = psycopg2.connect(database=DBNAME)
+    try:
+        conn = psycopg2.connect(database=DBNAME)
+    except psycopg2.Error as e:
+        print("Unable to connect to the database")
+        print(e.pgerror)
+        print(e.diag.message_detail)
+        sys.exit(1)
+
     cursor = conn.cursor()
     cursor.execute(query)
     result = cursor.fetchall()
