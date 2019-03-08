@@ -25,7 +25,7 @@ def articles():
 
 @app.route('/authors')
 def authors():
-    ''' Most popular articles '''
+    ''' Most popular authors '''
     title = 'Authors rank'
     authors = get_authors_rank()
     return render_template('reports/authors.html', title=title, data=authors)
@@ -33,7 +33,7 @@ def authors():
 
 @app.route('/errors')
 def errors():
-    ''' Days with error rate > 1% '''
+    ''' Days with higher error requests rate '''
     title = 'Error requests > 1%'
     errors = get_errors()
     return render_template('reports/errors.html', title=title, data=errors)
